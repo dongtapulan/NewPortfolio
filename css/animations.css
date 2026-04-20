@@ -1,4 +1,4 @@
-/* --- Floating Background Elements --- */
+/* --- Floating Background Elements (Enhanced) --- */
 .bg-visuals {
     position: fixed;
     top: 0;
@@ -8,51 +8,316 @@
     z-index: -1;
     overflow: hidden;
     pointer-events: none;
-    background: transparent; /* Ensure it doesn't block the background color */
+    background: transparent;
 }
 
 .shape {
     position: absolute;
-    bottom: -10%; /* Start below the screen */
+    bottom: -10%;
     opacity: 0;
-    color: rgba(0, 85, 255, 0.2); /* Slightly more visible blue */
+    color: rgba(0, 85, 255, 0.18);
     font-family: 'Space Grotesque', sans-serif;
     user-select: none;
-    transition: opacity 0.5s;
+    transition: opacity 0.4s ease;
+    will-change: transform, opacity;
+    pointer-events: none;
+    backface-visibility: hidden;
 }
 
-/* Specific shape styles */
-.plus { font-size: 2.5rem; font-weight: bold; }
-.square { font-size: 2rem; }
-.circle { font-size: 2rem; }
+/* Enhanced shape styles with more variety */
+.plus { 
+    font-size: 2.5rem; 
+    font-weight: bold; 
+}
 
-/* The Floating Keyframes */
+.square { 
+    font-size: 2rem; 
+    font-weight: 500;
+}
+
+.circle { 
+    font-size: 2rem; 
+    font-weight: 400;
+}
+
+/* New shape variations for richer visuals */
+.bracket { 
+    font-size: 2.2rem; 
+    font-weight: 600;
+    font-family: monospace;
+}
+
+.hash { 
+    font-size: 2rem; 
+    font-weight: bold;
+    letter-spacing: -2px;
+}
+
+.slash { 
+    font-size: 2.3rem; 
+    font-weight: 300;
+    transform: rotate(15deg);
+    display: inline-block;
+}
+
+.asterisk { 
+    font-size: 2rem; 
+    font-weight: 300;
+}
+
+/* Enhanced Floating Keyframes with smoother easing */
 @keyframes floatUp {
     0% { 
-        transform: translateY(0) rotate(0deg); 
+        transform: translateY(0) rotate(0deg) scale(0.8); 
+        opacity: 0; 
+    }
+    8% { 
+        opacity: 0.7; 
+    }
+    15% {
+        opacity: 0.9;
+    }
+    85% { 
+        opacity: 0.8; 
+    }
+    100% { 
+        transform: translateY(-110vh) rotate(360deg) scale(1.1); 
+        opacity: 0; 
+    }
+}
+
+/* Slower, more atmospheric variant for background depth */
+@keyframes floatUpSlow {
+    0% { 
+        transform: translateY(0) rotate(0deg) scale(0.9); 
         opacity: 0; 
     }
     10% { 
-        opacity: 1; 
+        opacity: 0.5; 
+    }
+    20% {
+        opacity: 0.7;
     }
     90% { 
-        opacity: 1; 
+        opacity: 0.4; 
     }
     100% { 
-        transform: translateY(-110vh) rotate(360deg); 
+        transform: translateY(-120vh) rotate(480deg) scale(1.2); 
         opacity: 0; 
     }
 }
 
-/* --- Scroll Reveal States --- */
+/* Drifting animation for side-to-side motion */
+@keyframes floatDrift {
+    0% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: 0.6;
+    }
+    30% {
+        transform: translateX(15px) translateY(-30vh) rotate(120deg);
+    }
+    60% {
+        transform: translateX(-10px) translateY(-70vh) rotate(240deg);
+    }
+    85% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateX(20px) translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* --- Scroll Reveal States (Improved) --- */
 .reveal {
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform, opacity; /* Performance boost */
+    transform: translateY(45px);
+    transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.3, 1.1), 
+                transform 0.7s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+    will-change: transform, opacity;
 }
 
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Staggered reveal variations for different elements */
+.reveal-fast {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1);
+}
+
+.reveal-fast.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1);
+}
+
+.reveal-scale.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1);
+}
+
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1);
+}
+
+.reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* --- Hover Pulse Effect for Interactive Elements --- */
+@keyframes subtlePulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 85, 255, 0.3);
+    }
+    70% {
+        box-shadow: 0 0 0 8px rgba(0, 85, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 85, 255, 0);
+    }
+}
+
+.pulse-on-hover:hover {
+    animation: subtlePulse 0.8s ease-out;
+}
+
+/* --- Loading Glow Animation --- */
+@keyframes loadingGlow {
+    0% {
+        opacity: 0.4;
+        filter: blur(2px);
+    }
+    50% {
+        opacity: 0.8;
+        filter: blur(0px);
+    }
+    100% {
+        opacity: 0.4;
+        filter: blur(2px);
+    }
+}
+
+.loading-skeleton {
+    animation: loadingGlow 1.5s ease-in-out infinite;
+}
+
+/* --- Reduce Motion Support (Accessibility) --- */
+@media (prefers-reduced-motion: reduce) {
+    .shape,
+    .reveal,
+    .reveal-fast,
+    .reveal-scale,
+    .reveal-left,
+    .reveal-right,
+    .project-img,
+    .spec-card,
+    .project-card,
+    .bento-box {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+    
+    @keyframes floatUp {
+        0%, 100% { transform: translateY(0); opacity: 0; }
+    }
+    
+    .bg-visuals .shape {
+        display: none;
+    }
+}
+
+/* --- Shape Animation Classes (for JS to assign) --- */
+.shape-fast {
+    animation: floatUp 6s linear infinite;
+}
+
+.shape-slow {
+    animation: floatUpSlow 14s linear infinite;
+}
+
+.shape-drift {
+    animation: floatDrift 18s ease-in-out infinite;
+}
+
+/* --- Floating Element Entrance --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* --- Border Glow for Active Elements --- */
+@keyframes borderPulse {
+    0% {
+        border-color: var(--black);
+        box-shadow: 6px 6px 0px var(--black);
+    }
+    50% {
+        border-color: var(--blue);
+        box-shadow: 8px 8px 0px var(--blue);
+    }
+    100% {
+        border-color: var(--black);
+        box-shadow: 6px 6px 0px var(--black);
+    }
+}
+
+.active-border {
+    animation: borderPulse 1.2s ease-in-out 2;
+}
+
+/* --- Background Gradient Shift (Subtle) --- */
+@keyframes bgShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.gradient-shift {
+    background: linear-gradient(135deg, #ffffff, #f5f5f5, #e8e8e8);
+    background-size: 200% 200%;
+    animation: bgShift 15s ease infinite;
 }

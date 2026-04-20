@@ -2,16 +2,128 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Huey | Dev & Designer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Huey | Dev & Designer — Core Engine</title>
+    <!-- Primary Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
+    <!-- Google Fonts: Space Grotesque (consistent with brutalist aesthetic) -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesque:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- (Optional) Favicon placeholder - maintains brand integrity -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230055ff'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/%3E%3C/svg%3E">
+    <style>
+        /* micro overrides to ensure nothing shifts — respects original branding */
+        .stack-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+            margin: 1.8rem 0 2rem;
+        }
+        .stack-tags span {
+            background: var(--white);
+            color: var(--black);
+            font-weight: 700;
+            padding: 0.4rem 1rem;
+            border: 2px solid var(--black);
+            box-shadow: 3px 3px 0px var(--black);
+            font-size: 0.8rem;
+            letter-spacing: -0.3px;
+            transition: all 0.2s ease;
+        }
+        .stack-tags span:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px var(--blue);
+            background: var(--blue);
+            color: white;
+            border-color: var(--black);
+        }
+        .hero-btns {
+            display: flex;
+            gap: 1.2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        .primary-btn, .secondary-btn {
+            display: inline-block;
+            padding: 0.9rem 2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border: 3px solid var(--black);
+            transition: 0.2s ease;
+            background: var(--white);
+            color: var(--black);
+            box-shadow: 5px 5px 0px var(--black);
+        }
+        .primary-btn:hover, .secondary-btn:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 8px 8px 0px var(--blue);
+            background: var(--blue);
+            color: var(--white);
+            border-color: var(--black);
+        }
+        .games-section {
+            padding: 5rem 5%;
+            background-color: var(--white);
+            border-top: 4px solid var(--black);
+            border-bottom: 4px solid var(--black);
+        }
+        .games-container {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+        .project-card.secondary .itch-profile {
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+        }
+        .box-label {
+            position: absolute;
+            top: -14px;
+            left: 20px;
+            background: var(--blue);
+            color: white;
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            font-weight: bold;
+            border: 2px solid var(--black);
+            letter-spacing: -0.2px;
+            z-index: 5;
+        }
+        .highlight-card {
+            position: relative;
+        }
+        .spec-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero-subtitle {
+            max-width: 700px;
+            margin: 1rem auto;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        @media (max-width: 768px) {
+            .hero-btns { gap: 1rem; }
+            .primary-btn, .secondary-btn { padding: 0.7rem 1.3rem; font-size: 0.8rem; }
+            .stack-tags span { font-size: 0.7rem; padding: 0.2rem 0.8rem; }
+        }
+        /* preserve bento + brutalist hover on all spec cards */
+        .spec-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+    </style>
 </head>
 <body>
 
+    <!-- Floating animated background elements (css driven) -->
     <div class="bg-visuals"></div>
 
+    <!-- Navigation: brutalist, exactly as original -->
     <nav class="navbar">
         <div class="logo">HUEY.SYS // <span class="blue-text">CORE_ENGINE</span></div>
         <ul class="nav-links">
@@ -22,14 +134,16 @@
         </ul>
     </nav>
     
+    <!-- Hero Section – bold blue background, profile image, huge title, tags and CTA -->
     <header class="hero">
         <div class="hero-content reveal">
             <div class="profile-container">
-                <img src="assets/img/profile.jpg" alt="Huey" class="profile-pic">
+                <img src="assets/img/profile.jpg" alt="Huey Sumanting - IT Student & Game Developer" class="profile-pic">
             </div>
             <h1 class="huge-title">BUILDING <span class="blue-text">DIGITAL</span> WORLDS.</h1>
             <p class="hero-subtitle">IT Student & Indie Game Developer specializing in narrative-driven 2D titles and sleek web interfaces.</p>
             
+            <!-- Tech stack tags: original branding with modern brutalist micro-interactions -->
             <div class="stack-tags">
                 <span>#Python</span>
                 <span>#Pygame</span>
@@ -45,6 +159,7 @@
         </div>
     </header>
 
+    <!-- Specialization Grid: unchanged content, only structural integrity -->
     <section id="work" class="specialization-grid">
         <div class="spec-card reveal">
             <div class="spec-icon">🎮</div>
@@ -63,89 +178,173 @@
         </div>
     </section>
 
+    <!-- Games Library Section: original games section with itch.io integration -->
     <section id="games" class="games-section">
         <h2 class="section-header">GAMES_LIBRARY</h2>
         
         <div class="games-container">
+            <!-- Featured game card: Zethia Scrapjet Skyways -->
             <div class="project-card reveal highlight-card">
                 <div class="project-image-box">
-                    <img src="assets/img/projects/zethia_cover.jpg" alt="Zethia Scrapjet Skyways" class="project-img">
+                    <img src="assets/img/projects/zethia_cover.jpg" alt="Zethia Scrapjet Skyways gameplay cover" class="project-img">
                 </div>
                 <div class="project-info">
                     <div class="box-label">LATEST_RELEASE</div>
                     <h3>Zethia: Scrapjet Skyways</h3>
                     <p>A high-speed sky-faring adventure built on the Zethia engine. Master flight physics and scrap-tech mechanics.</p>
                     <div class="project-tags">#Pygame #PixelArt #Physics</div>
-                    <a href="https://huey12345.itch.io/zethia-scrapjet-skyways" target="_blank" class="project-link">PLAY ON ITCH.IO</a>
+                    <a href="https://huey12345.itch.io/zethia-scrapjet-skyways" target="_blank" rel="noopener noreferrer" class="project-link">PLAY ON ITCH.IO</a>
                 </div>
             </div>
 
+            <!-- Secondary itch.io profile card -->
             <div class="project-card reveal secondary">
                 <div class="project-info itch-profile">
                     <h3>More on Itch.io</h3>
                     <p>Explore my full catalog of experimental titles, game jam entries, and narrative prototypes.</p>
-                    <a href="https://huey12345.itch.io/" target="_blank" class="project-link">BROWSE_CATALOG</a>
+                    <a href="https://huey12345.itch.io/" target="_blank" rel="noopener noreferrer" class="project-link">BROWSE_CATALOG</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Active Projects Section: all original web apps, 3D experiments, and productivity tools -->
     <section id="projects" class="projects-section">
         <h2 class="section-header">ACTIVE_PROJECTS</h2>
         
         <div class="projects-container">
+            <!-- Space.env Featured Station -->
             <div class="project-card reveal highlight-card">
                 <div class="project-image-box">
-                    <img src="assets/img/projects/spaceenv.jpg" alt="Space Environment" class="project-img">
+                    <img src="assets/img/projects/spaceenv.jpg" alt="Space Environment interactive demo" class="project-img">
                 </div>
                 <div class="project-info">
                     <div class="box-label">FEATURED_STATION</div>
                     <h3>Space.env</h3>
                     <p>A digital exploration of space-themed mechanics and environmental design. Built from a lifelong passion for astronomy and celestial physics.</p>
                     <div class="project-tags">#GameDesign #WebPhysics #SciFi</div>
-                    <a href="https://spaceenv.netlify.app/" target="_blank" class="project-link">LAUNCH MISSION</a>
+                    <a href="https://spaceenv.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">LAUNCH MISSION</a>
                 </div>
             </div>
 
+            <!-- TerraBiome 3D Globe Ecosystem -->
             <div class="project-card reveal">
                 <div class="project-image-box">
-                    <img src="assets/img/projects/terrabiome.jpg" alt="TerraBiome 3D" class="project-img">
+                    <img src="assets/img/projects/terrabiome.jpg" alt="TerraBiome 3D globe ecosystem" class="project-img">
                 </div>
                 <div class="project-info">
                     <h3>TerraBiome 3D</h3>
                     <p>An interactive 3D globe ecosystem visualizer. Explore the biosphere through an immersive digital environment.</p>
                     <div class="project-tags">#ThreeJS #WebDev #3D</div>
-                    <a href="https://terrabiome3d-explorebiosphere.netlify.app/" target="_blank" class="project-link">VIEW LIVE SOURCE</a>
+                    <a href="https://terrabiome3d-explorebiosphere.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">VIEW LIVE SOURCE</a>
                 </div>
             </div>
 
+            <!-- Color Flipper Tool -->
             <div class="project-card secondary reveal">
                 <div class="project-image-box">
-                    <img src="assets/img/projects/colorflipper.jpg" alt="Color Flipper" class="project-img">
+                    <img src="assets/img/projects/colorflipper.jpg" alt="Color Flipper palette generator interface" class="project-img">
                 </div>
                 <div class="project-info">
                     <h3>Color Flipper</h3>
                     <p>A tool for rapid color palette generation and hexadecimal discovery.</p>
                     <div class="project-tags">#JavaScript #Tools</div>
-                    <a href="https://colorflipperh.netlify.app/" target="_blank" class="project-link">FLIP_COLOR</a>
+                    <a href="https://colorflipperh.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">FLIP_COLOR</a>
                 </div>
             </div>
 
+            <!-- Daily Task Manager App -->
             <div class="project-card secondary reveal">
                 <div class="project-image-box">
-                    <img src="assets/img/projects/todoApp.jpg" alt="Task Manager" class="project-img">
+                    <img src="assets/img/projects/todoApp.jpg" alt="Task Manager web app interface" class="project-img">
                 </div>
                 <div class="project-info">
                     <h3>Daily Task Manager</h3>
                     <p>A streamlined productivity app focusing on clean UI and state management.</p>
                     <div class="project-tags">#WebDesign #StateManagement</div>
-                    <a href="https://hpstodo-app.netlify.app/" target="_blank" class="project-link">MANAGE_TASKS</a>
+                    <a href="https://hpstodo-app.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">MANAGE_TASKS</a>
                 </div>
             </div>
         </div> 
     </section>
 
+    <!-- JavaScript files: scroll reveal animations + dynamic floating shapes (fully preserves original behavior) -->
     <script src="js/animations.js"></script>
     <script src="js/main.js"></script>
+    
+    <!-- Additional inline script to ensure background floating shapes are generated if animations.js relies on DOM -->
+    <script>
+        (function() {
+            // Ensure floating background elements are generated if not already handled by animations.js
+            // This does NOT modify any original content; it adds floating shape elements only if .bg-visuals is empty.
+            // It respects the original design and doesn't alter any existing HTML structure.
+            const bgContainer = document.querySelector('.bg-visuals');
+            if (bgContainer && bgContainer.children.length === 0) {
+                const shapes = ['+', '□', '○', '△', '◊', '⌗', '⨯'];
+                const shapeClasses = ['plus', 'square', 'circle'];
+                for (let i = 0; i < 32; i++) {
+                    const shapeEl = document.createElement('div');
+                    const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+                    const randomClass = shapeClasses[Math.floor(Math.random() * shapeClasses.length)];
+                    shapeEl.textContent = randomShape;
+                    shapeEl.classList.add('shape', randomClass);
+                    const size = Math.floor(Math.random() * 28) + 16; // between 16px and 44px
+                    shapeEl.style.fontSize = `${size}px`;
+                    shapeEl.style.left = `${Math.random() * 100}%`;
+                    shapeEl.style.animationDuration = `${Math.random() * 8 + 6}s`; // 6-14s float
+                    shapeEl.style.animationDelay = `${Math.random() * 12}s`;
+                    shapeEl.style.animationName = 'floatUp';
+                    shapeEl.style.animationIterationCount = 'infinite';
+                    shapeEl.style.animationTimingFunction = 'linear';
+                    shapeEl.style.opacity = '0';
+                    bgContainer.appendChild(shapeEl);
+                }
+            }
+        })();
+    </script>
+    <!-- Additional style guarantee: ensure shape animations exist -->
+    <style>
+        /* ensure floating keyframes exist if animations.css partially missing but we already include full animations.css */
+        .bg-visuals .shape {
+            position: absolute;
+            bottom: -10%;
+            pointer-events: none;
+            font-family: 'Space Grotesque', monospace;
+            user-select: none;
+            will-change: transform, opacity;
+            opacity: 0;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.9; }
+            90% { opacity: 0.8; }
+            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+        }
+        .shape {
+            animation: floatUp linear infinite;
+        }
+        /* guarantee box-label absolute positioning relative to project cards */
+        .project-card {
+            position: relative;
+        }
+        .secondary .box-label {
+            display: none;
+        }
+        /* additional minor refinement: consistent project-tags styling */
+        .project-tags {
+            font-family: monospace;
+            font-weight: bold;
+            color: var(--blue);
+            margin: 0.8rem 0;
+        }
+        .profile-container {
+            display: flex;
+            justify-content: center;
+        }
+        /* ensure hover and brutalist shadows are preserved for spec-cards */
+        .spec-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+    </style>
 </body>
-</html>z
+</html>
