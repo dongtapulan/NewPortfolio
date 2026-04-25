@@ -656,3 +656,27 @@ h1, h2, h3, h4, .logo, .nav-links a, .project-link, .about-btn {
     background: var(--white);
     border-color: var(--black);
 }
+/* Styling for Download/Secondary buttons inside project cards */
+.project-link.secondary-btn {
+    background: var(--white);
+    color: var(--black);
+    border: 2px solid var(--black);
+}
+
+.project-link.secondary-btn:hover {
+    background: var(--accent); /* Uses your tech-cyan accent */
+    color: var(--black);
+}
+
+/* Secondary card variation to differentiate from Featured ones */
+.project-card.secondary {
+    box-shadow: 8px 8px 0px var(--black); /* Standard black shadow */
+}
+
+.project-card.secondary .box-label {
+    background: var(--black); /* Neutral label for non-featured items */
+}
+
+.project-card.secondary:hover {
+    box-shadow: 12px 12px 0px var(--blue);
+}
